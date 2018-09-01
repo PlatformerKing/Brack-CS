@@ -1,0 +1,2411 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Brack-0.1.0</name>
+    </assembly>
+    <members>
+        <member name="T:Brack.Data.Interfaces.IGlobalVariableDictionary">
+            <summary>
+            Manager for globalvars.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IGlobalVariableDictionary.GlobalCount">
+            <summary>
+            The amount of globalvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.HasGlobal(System.String)">
+            <summary>
+            Does a globalvar exist with the given name?
+            </summary>
+            <param name="varName">The name of the globalvar to check for.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.HasGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a globalvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.SetGlobal(System.String,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the globalvar to alter or declare.</param>
+            <param name="value">The value to store in the globalvar.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.SetGlobal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the globalvar.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.GetGlobal(System.String)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="varName">The name of the globalvar.</param>
+            <returns>The value found in the globalvar.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.GetGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to get from (nested brack operations execute).</param>
+            <returns>The value found in the globalvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.DeleteGlobal(System.String)">
+            <summary>
+            Delete the globalvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the globalvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.DeleteGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the globavar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IGlobalVariableDictionary.ResetGlobals">
+            <summary>
+            Instantiate a new globalvar Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IGlobalVariableDictionary.GlobalVarnames">
+            <summary>
+            Get the names of all globalvars.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Interfaces.ILocalMemoryStack">
+            <summary>
+            A Manager for LocalMemory.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.ILocalMemoryStack.LocalMemoryCount">
+            <summary>
+            The amount of LocalMemories.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalMemoryStack.PushNewLocalMemory">
+            <summary>
+            Push a new LocalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalMemoryStack.RemoveLastLocalMemory">
+            <summary>
+            Remove the last LocalMemory.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.ILocalMemoryStack.CurrentLocalMemory">
+            <summary>
+            Get the top LocalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalMemoryStack.ResetLocalMemories">
+            <summary>
+            Reset the LocalMemory List.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Interfaces.ILocalVariableDictionary">
+            <summary>
+            A Manager for localvars.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.ILocalVariableDictionary.LocalCount">
+            <summary>
+            The amount of localvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.HasLocal(System.String)">
+            <summary>
+            Does a localvars exist with the given name?
+            </summary>
+            <param name="varName">The name of the localvars to check for.</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.HasLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a localvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvars to check for (nested brack operations execute).</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.SetLocal(System.String,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the localvar to alter or declare.</param>
+            <param name="value">The value to store in the localvar.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.SetLocal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the localvars.</param>
+            <returns>If a localvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.GetLocal(System.String)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="varName">The name of the localvar.</param>
+            <returns>The value found in the localvar.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.GetLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to get from (nested brack operations execute).</param>
+            <returns>The value found in the localvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.DeleteLocal(System.String)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the localvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.DeleteLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.ILocalVariableDictionary.ResetLocals">
+            <summary>
+            Instantiate a new localvar Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.ILocalVariableDictionary.LocalVarnames">
+            <summary>
+            Get the names of all localvar.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Interfaces.IOperatorDictionary">
+            <summary>
+            Manager for Operators.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IOperatorDictionary.OpNames">
+            <summary>
+            All Operator names.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IOperatorDictionary.OpCount">
+            <summary>
+            The amount of Operators.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IOperatorDictionary.HasOpName(System.String)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="opName">The name of the Operator to look for.</param>
+            <returns>If the Operator exists.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IOperatorDictionary.HasOpName(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to look for (nested brack operations execute).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IOperatorDictionary.ExecuteOperator(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="args">The arguments to pass into the Operator.</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IOperatorDictionary.ExecuteOperator(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="args">The arguments to pass into the Operator (nested brack operations execute).</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="T:Brack.Data.Interfaces.IScopeList">
+            <summary>
+            A manager for Scopes.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IScopeList.ScopeCount">
+            <summary>
+            The amount of Scopes.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScopeList.AddScope">
+            <summary>
+            Add a new Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScopeList.DeleteTopScope">
+            <summary>
+            Delete the top Scope.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IScopeList.TopScope">
+            <summary>
+            Peek the top Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScopeList.ResetScopes">
+            <summary>
+            Reset the Sope Stack.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Interfaces.IScriptDictionary">
+            <summary>
+            Manager for Scripts.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IScriptDictionary.ScriptCount">
+            <summary>
+            The amount of Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.HasScript(System.String)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="scriptName">The name of the Script to check for.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.HasScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.SetScript(System.String,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="scriptName">The name of the Script to alter or declare.</param>
+            <param name="script">The Script to add.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.SetScript(Brack.Data.RAM,System.Object,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <param name="script">The Script to add.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.GetScript(System.String)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="scriptName">The name of the Script.</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.GetScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to get from (nested brack operations execute).</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.DeleteScript(System.String)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="scriptName">The name of the Script to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.DeleteScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.ResetScripts">
+            <summary>
+            Instantiate a new Script Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Interfaces.IScriptDictionary.ScriptNames">
+            <summary>
+            Get the names of all Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.GetScriptArguments(System.String)">
+            <summary>
+            Get the names of the arguments of the Script of the given name.
+            </summary>
+            <param name="scriptName">The name of the Script.</param>
+            <returns>The argument names.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.ExecuteScript(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The Script name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="M:Brack.Data.Interfaces.IScriptDictionary.ExecuteScript(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script  (nested brack operations execute).</param>
+            <returns>The argument names.</returns>
+        </member>
+        <member name="T:Brack.Data.Memory.GlobalMemory">
+            <summary>
+            Class for managing global memory data for a Brack application.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Memory.GlobalMemory._Scripts">
+            <summary>
+            The Scripts of this GlobalMemory.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Memory.GlobalMemory._Globals">
+            <summary>
+            The globalvars of this GlobalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.#ctor">
+            <summary>
+            The default contsructor.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.GlobalMemory.GlobalCount">
+            <summary>
+            The amount of globalvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.HasGlobal(System.String)">
+            <summary>
+            Does the given globalvar exist with the given name?
+            </summary>
+            <param name="varName">The name of the globalvar to check for.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.HasGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does the given globalvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.SetGlobal(System.String,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the globalvar to alter or declare.</param>
+            <param name="value">The value to store in the globalvar.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.SetGlobal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the globalvar.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetGlobal(System.String)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="varName">The name of the globalvar.</param>
+            <returns>The value found in the globalvar.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to get from (nested brack operations execute).</param>
+            <returns>The value found in the globalvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.DeleteGlobal(System.String)">
+            <summary>
+            Delete the globalvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the globalvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.DeleteGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the globavar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.ResetGlobals">
+            <summary>
+            Instantiate a new globalvar dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.GlobalMemory.GlobalVarnames">
+            <summary>
+            Get the names of all globalvars.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.GlobalMemory.ScriptCount">
+            <summary>
+            The amount of Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.HasScript(System.String)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="scriptName">The name of the Script to check for.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.HasScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.SetScript(System.String,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="scriptName">The name of the Script to alter or declare.</param>
+            <param name="script">The Script to add.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.SetScript(Brack.Data.RAM,System.Object,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <param name="script">The Script to add.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetScript(System.String)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="scriptName">The name of the Script.</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to get from (nested brack operations execute).</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.DeleteScript(System.String)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="scriptName">The name of the Script to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.DeleteScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.ResetScripts">
+            <summary>
+            Instantiate a new Script Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.GlobalMemory.ScriptNames">
+            <summary>
+            Get the names of all Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetScriptArguments(System.String)">
+            <summary>
+            Get the names of the arguments of the Script of the given name.
+            </summary>
+            <param name="scriptName">The name of the Script .</param>
+            <returns>The argument names.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.GetScriptArguments(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the names of the arguments of the given Script from this GlobalMemory.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script (nested operators are executed).</param>
+            <returns>The argument names</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.ExecuteScript(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The Script name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.GlobalMemory.ExecuteScript(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The Script name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="T:Brack.Data.Memory.LocalMemory">
+            <summary>
+            Class for managing local memory data for a Brack application.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Memory.LocalMemory._Scopes">
+            <summary>
+            The list of Scopes.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.#ctor">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.LocalMemory.LocalCount">
+            <summary>
+            The amount of localvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.HasLocal(System.String)">
+            <summary>
+            Does a localvars exist with the given name?
+            </summary>
+            <param name="varName">The name of the localvars to check for.</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.HasLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a localvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvars to check for (nested brack operations execute).</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.SetLocal(System.String,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the localvar to alter or declare.</param>
+            <param name="value">The value to store in the localvar.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.SetLocal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the localvars.</param>
+            <returns>If a localvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.GetLocal(System.String)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="varName">The name of the localvar.</param>
+            <returns>The value found in the localvar.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.GetLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to get from (nested brack operations execute).</param>
+            <returns>The value found in the localvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.DeleteLocal(System.String)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the localvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.DeleteLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.ResetLocals">
+            <summary>
+            Instantiate a new localvar Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.LocalMemory.LocalVarnames">
+            <summary>
+            Get the names of all localvar.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.LocalMemory.ScopeCount">
+            <summary>
+            The amount of Scopes.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.AddScope">
+            <summary>
+            Add a new Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.DeleteTopScope">
+            <summary>
+            Delete the top Scope.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.LocalMemory.TopScope">
+            <summary>
+            Peek the top Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.LocalMemory.ResetScopes">
+            <summary>
+            Reset the Sope Stack.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Memory.Scope">
+            <summary>
+            A single Scope of LocalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.Scope.LocalCount">
+            <summary>
+            The amount of localvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.HasLocal(System.String)">
+            <summary>
+            Does a localvars exist with the given name?
+            </summary>
+            <param name="varName">The name of the localvars to check for.</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.HasLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a localvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvars to check for (nested brack operations execute).</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.SetLocal(System.String,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the localvar to alter or declare.</param>
+            <param name="value">The value to store in the localvar.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.SetLocal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the localvars.</param>
+            <returns>If a localvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.GetLocal(System.String)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="varName">The name of the localvar.</param>
+            <returns>The value found in the localvar.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.GetLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to get from (nested brack operations execute).</param>
+            <returns>The value found in the localvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.DeleteLocal(System.String)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the localvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.DeleteLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.Memory.Scope.ResetLocals">
+            <summary>
+            Instantiate a new localvar Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.Scope.LocalVarnames">
+            <summary>
+            Get the names of all localvar.
+            </summary>
+        </member>
+        <member name="T:Brack.Data.Memory.Script">
+            <summary>
+            Manager for a Brack Script.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Memory.Script._Brack">
+            <summary>
+            The Brack statements.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Memory.Script._ArgNames">
+            <summary>
+            The argument names.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.#ctor(Brack.Data.RAM,System.Object[][],System.Object[])">
+            <summary>
+            Overloaded Constructor
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="brack">The brack statements.</param>
+            <param name="argNames">The arguments.</param>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.#ctor(System.Object[][],System.String[])">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="brack">The brack statements.</param>
+            <param name="argNames">The arguments.</param>
+        </member>
+        <member name="P:Brack.Data.Memory.Script.ArgCount">
+            <summary>
+            The argument count.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Memory.Script.BrackCount">
+            <summary>
+            The Brack statement count.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.GetArgName(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the argument name of the given index.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="index">The index of the argument to get (nested Brack statements execute).</param>
+            <returns>The name of the argument.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.GetArgName(System.Int32)">
+            <summary>
+            Get the argument name of the given index.
+            </summary>
+            <param name="index">The index of the argument to get.</param>
+            <returns>The name of the argument.</returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.GetArgNames">
+            <summary>
+            The names of all arguments.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Data.Memory.Script.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this script.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackParamDelegate`1">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts or more arguments of a single type.
+            </summary>
+            <typeparam name="T">The generic type of all arguments.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments array.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts no arguments.
+            </summary>
+            <param name="r">The current memory.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`1">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts one argument.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`2">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts two arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`3">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts three arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>\
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`4">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts four arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`5">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts five arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`6">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts six arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`7">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts seven arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`8">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts eigth arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eight argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eigth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`9">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts nine arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`10">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts ten arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`11">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts eleven arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <param name="Arg11">The eleventh argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`12">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts twelve arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <param name="Arg11">The eleventh argument.</param>
+            <param name="Arg12">The twelveth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`13">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts thirteen arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <param name="Arg11">The eleventh argument.</param>
+            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg13">The thirteenth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`14">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts fourteen arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+            <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <param name="Arg11">The eleventh argument.</param>
+            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg13">The thirteenth argument.</param>
+            <param name="Arg14">The fourteenth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackDelegate`15">
+            <summary>
+            A delegate for encapsulating a Brack operation that accepts fifteenth arguments.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eighth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+            <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
+            <typeparam name="T15">The generic type of the fifteenth argument.</typeparam>
+            <param name="r">The current memory.</param>
+            <param name="Arg1">The first argument.</param>
+            <param name="Arg2">The second argument.</param>
+            <param name="Arg3">The third argument.</param>
+            <param name="Arg4">The fourth argument.</param>
+            <param name="Arg5">The fifth argument.</param>
+            <param name="Arg6">The sixth argument.</param>
+            <param name="Arg7">The seventh argument.</param>
+            <param name="Arg8">The eighth argument.</param>
+            <param name="Arg9">The ninth argument.</param>
+            <param name="Arg10">The tenth argument.</param>
+            <param name="Arg11">The eleventh argument.</param>
+            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg13">The thirteenth argument.</param>
+            <param name="Arg15">The fifteenth argument.</param>
+            <returns>The delegate return.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperatorBase">
+            <summary>
+            The base of all Brack Operators.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Operations.BrackOperatorBase.ParamArgCount">
+            <summary>
+            The amount of arguments in a Brack param operator.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Operations.BrackOperatorBase._Types">
+            <summary>
+            The types of the arguments accepted in this BrackOperator.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Operations.BrackOperatorBase._BrackDelegate">
+            <summary>
+            The delegate of this BrackOperator.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Operations.BrackOperatorBase.Name">
+            <summary>
+            The name of this BrackOperator (the OpName).
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Operations.BrackOperatorBase.IsParam">
+            <summary>
+            Is this BrackOperator a Param Operator?
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Operations.BrackOperatorBase.ArgCount">
+            <summary>
+            The amount of arguments accepted in this BrackOperator.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperatorBase.#ctor(System.String,System.Delegate)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperatorBase.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperatorBase.CheckArgs(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Check arguments to be valid for execution.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments.</param>
+            <returns>The calculated arguments.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackParamOperator`1">
+            <summary>
+            A BrackOperator which accepts one or more arguments of a certain type.
+            </summary>
+            <typeparam name="T">The generic param type.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackParamOperator`1.#ctor(System.String,Brack.Data.Operations.BrackParamDelegate{`0})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackParamOperator`1.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator">
+            <summary>
+            A BrackOperator which accepts no arguments.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator.#ctor(System.String,Brack.Data.Operations.BrackDelegate)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`1">
+            <summary>
+            A BrackOperator which accepts one argument of a certain type.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`1.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`1.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`2">
+            <summary>
+            A BrackOperator which accepts two arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`2.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`2.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`3">
+            <summary>
+            A BrackOperator which accepts three arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`3.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`3.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`4">
+            <summary>
+            A BrackOperator which accepts four arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`4.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`4.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`5">
+            <summary>
+            A BrackOperator which accepts five arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`5.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`5.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`6">
+            <summary>
+            A BrackOperator which accepts six arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`6.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`6.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`7">
+            <summary>
+            A BrackOperator which accepts seven arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`7.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`7.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`8">
+            <summary>
+            A BrackOperator which accepts eight arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`8.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`8.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`9">
+            <summary>
+            A BrackOperator which accepts nine arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`9.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`9.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`10">
+            <summary>
+            A BrackOperator which accepts ten arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`10.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`10.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`11">
+            <summary>
+            A BrackOperator which accepts eleven arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`11.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`11.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`12">
+            <summary>
+            A BrackOperator which accepts tweleve arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`12.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`12.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`13">
+            <summary>
+            A BrackOperator which accepts thirteen arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`13.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`13.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`14">
+            <summary>
+            A BrackOperator which accepts fourteen arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+            <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`14.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`14.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.BrackOperator`15">
+            <summary>
+            A BrackOperator which accepts fifteen arguments of certain types.
+            </summary>
+            <typeparam name="T1">The generic type of the first argument.</typeparam>
+            <typeparam name="T2">The generic type of the second argument.</typeparam>
+            <typeparam name="T3">The generic type of the third argument.</typeparam>
+            <typeparam name="T4">The generic type of the fourth argument.</typeparam>
+            <typeparam name="T5">The generic type of the fifth argument.</typeparam>
+            <typeparam name="T6">The generic type of the sixth argument.</typeparam>
+            <typeparam name="T7">The generic type of the seventh argument.</typeparam>
+            <typeparam name="T8">The generic type of the eigth argument.</typeparam>
+            <typeparam name="T9">The generic type of the ninth argument.</typeparam>
+            <typeparam name="T10">The generic type of the tenth argument.</typeparam>
+            <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
+            <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
+            <typeparam name="T15">The generic type of the fifteenth argument.</typeparam>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`15.#ctor(System.String,Brack.Data.Operations.BrackDelegate{`0,`1,`2,`3,`4,`5,`6,`7,`8,`9,`10,`11,`12,`13,`14})">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="name">The name of this BrackOperator.</param>
+            <param name="imp">The implementation of this BrackOperator.</param>
+        </member>
+        <member name="M:Brack.Data.Operations.BrackOperator`15.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute this BrackOperator.
+            </summary>
+            <param name="r">The current memory.</param>
+            <param name="args">The arguments to pass in.</param>
+            <returns>The return of this operation.</returns>
+        </member>
+        <member name="T:Brack.Data.Operations.OperationSet">
+            <summary>
+            A manager for all BrackOperators used in a Brack application.
+            </summary>
+        </member>
+        <member name="F:Brack.Data.Operations.OperationSet._Operators">
+            <summary>
+            Dictionary of all Operators.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.#ctor">
+            <summary>
+            Empty Constructor.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.#ctor(Brack.Data.Operations.BrackOperatorBase[])">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="operators"></param>
+        </member>
+        <member name="P:Brack.Data.Operations.OperationSet.OpNames">
+            <summary>
+            All Operator names.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.Operations.OperationSet.OpCount">
+            <summary>
+            The amount of Operators.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.HasOpName(System.String)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="opName">The name of the Operator to look for.</param>
+            <returns>If the Operator exists.</returns>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.HasOpName(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to look for (nested brack operations execute).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.ExecuteOperator(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="args">The arguments to pass into the Operator.</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="M:Brack.Data.Operations.OperationSet.ExecuteOperator(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="args">The arguments to pass into the Operator (nested brack operations execute).</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="T:Brack.Data.RAM">
+            <summary>
+            A wrapper for all Random Access Memory used in a Brack Application.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.GlobalMemory">
+            <summary>
+            The GlobalMemory of this Brack application.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.OperationSet">
+            <summary>
+            The OperationSet of this Brack application.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.#ctor">
+            <summary>
+            Empty Constructor.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.#ctor(Brack.Data.Memory.GlobalMemory,Brack.Data.Operations.OperationSet)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="globalMemory">The GlobalMemory of this Brack application.</param>
+            <param name="operationSet">The OperationSet of this Brack application.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.#ctor(Brack.Data.Operations.OperationSet)">
+            <summary>
+            Overridden Constructor
+            </summary>
+            <param name="operationSet">The OperationSet of this Brack application.</param>
+        </member>
+        <member name="P:Brack.Data.RAM.GlobalCount">
+            <summary>
+            The amount of globalvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.HasGlobal(System.String)">
+            <summary>
+            Does the given globalvar exist with the given name?
+            </summary>
+            <param name="varName">The name of the globalvar to check for.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.HasGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does the given globalvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.SetGlobal(System.String,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the globalvar to alter or declare.</param>
+            <param name="value">The value to store in the globalvar.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.SetGlobal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globalvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the globalvar.</param>
+            <returns>If a globalvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetGlobal(System.String)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="varName">The name of the globalvar.</param>
+            <returns>The value found in the globalvar.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the globalvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to get from (nested brack operations execute).</param>
+            <returns>The value found in the globalvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteGlobal(System.String)">
+            <summary>
+            Delete the globalvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the globalvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteGlobal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the globavar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the globavar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.RAM.ResetGlobals">
+            <summary>
+            Instantiate a new globalvar dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.GlobalVarnames">
+            <summary>
+            Get the names of all globalvars.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.LocalCount">
+            <summary>
+            The amount of localvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.HasLocal(System.String)">
+            <summary>
+            Does a localvars exist with the given name?
+            </summary>
+            <param name="varName">The name of the localvars to check for.</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.HasLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a localvar exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvars to check for (nested brack operations execute).</param>
+            <returns>If a localvars exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.SetLocal(System.String,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="varName">The name of the localvar to alter or declare.</param>
+            <param name="value">The value to store in the localvar.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.SetLocal(Brack.Data.RAM,System.Object,System.Object)">
+            <summary>
+            Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to check for (nested brack operations execute).</param>
+            <param name="value">The value to store in the localvars.</param>
+            <returns>If a localvar exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetLocal(System.String)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="varName">The name of the localvar.</param>
+            <returns>The value found in the localvar.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the value of the localvar with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to get from (nested brack operations execute).</param>
+            <returns>The value found in the localvar with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteLocal(System.String)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="varName">The name of the localvar to delete.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteLocal(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the localvar with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="varName">The name of the localvar to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.RAM.ResetLocals">
+            <summary>
+            Instantiate a new localvar Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.LocalVarnames">
+            <summary>
+            Get the names of all localvar.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.ScriptCount">
+            <summary>
+            The amount of Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.HasScript(System.String)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="scriptName">The name of the Script to check for.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.HasScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does a Script exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.SetScript(System.String,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="scriptName">The name of the Script to alter or declare.</param>
+            <param name="script">The Script to add.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.SetScript(Brack.Data.RAM,System.Object,Brack.Data.Memory.Script)">
+            <summary>
+            Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to check for (nested brack operations execute).</param>
+            <param name="script">The Script to add.</param>
+            <returns>If a Script exists with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetScript(System.String)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="scriptName">The name of the Script.</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the Script with the given name.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to get from (nested brack operations execute).</param>
+            <returns>The Script found with the given name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteScript(System.String)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="scriptName">The name of the Script to delete.</param>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteScript(Brack.Data.RAM,System.Object)">
+            <summary>
+            Delete the Script with the given name from memory (with garbage collection).
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script to delete (nested brack operations execute).</param>
+        </member>
+        <member name="M:Brack.Data.RAM.ResetScripts">
+            <summary>
+            Instantiate a new Script Dictionary.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.ScriptNames">
+            <summary>
+            Get the names of all Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.GetScriptArguments(System.String)">
+            <summary>
+            Get the names of the arguments of the Script of the given name.
+            </summary>
+            <param name="scriptName">The name of the Script .</param>
+            <returns>The argument names.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetScriptArguments(Brack.Data.RAM,System.Object)">
+            <summary>
+            Get the names of the arguments of the given Script from this GlobalMemory.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The name of the Script (nested operators are executed).</param>
+            <returns>The argument names</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.ExecuteScript(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The Script name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.ExecuteScript(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute a Script.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="scriptName">The Script name.</param>
+            <param name="args">The arguments.</param>
+            <returns>The resulting return.</returns>
+        </member>
+        <member name="P:Brack.Data.RAM.ScopeCount">
+            <summary>
+            The amount of Scopes.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.AddScope">
+            <summary>
+            Add a new Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.DeleteTopScope">
+            <summary>
+            Delete the top Scope.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.TopScope">
+            <summary>
+            Peek the top Scope.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.ResetScopes">
+            <summary>
+            Reset the Sope Stack.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.OpNames">
+            <summary>
+            All Operator names.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.OpCount">
+            <summary>
+            The amount of Operators.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.HasOpName(System.String)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="opName">The name of the Operator to look for.</param>
+            <returns>If the Operator exists.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.HasOpName(Brack.Data.RAM,System.Object)">
+            <summary>
+            Does an Operator exist with the given name?
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to look for (nested brack operations execute).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Data.RAM.ExecuteOperator(Brack.Data.RAM,System.String,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="arguments">The arguments to pass into the Operator.</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.ExecuteOperator(Brack.Data.RAM,System.Object,System.Object[])">
+            <summary>
+            Execute an Operator with the given name and arguments.
+            </summary>
+            <param name="r">The RAM used for this execution.</param>
+            <param name="opName">The name of the Operator to execute.</param>
+            <param name="arguments">The arguments to pass into the Operator (nested brack operations execute).</param>
+            <returns>The resulting return of the Operator execution.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.PushNewLocalMemory">
+            <summary>
+            Push a new LocalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.RemoveLastLocalMemory">
+            <summary>
+            Remove the last LocalMemory.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.LocalMemoryCount">
+            <summary>
+            The amount of LocalMemories.
+            </summary>
+        </member>
+        <member name="P:Brack.Data.RAM.CurrentLocalMemory">
+            <summary>
+            Get the top LocalMemory.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.ResetLocalMemories">
+            <summary>
+            Reset the LocalMemory List.
+            </summary>
+        </member>
+        <member name="M:Brack.Data.RAM.GetName(System.Object)">
+            <summary>
+            Get the name of an operator from an object at runtime.
+            </summary>
+            <param name="name">The object name (nested Brack statements execute).</param>
+            <returns>The string name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetFloat(System.Object)">
+            <summary>
+            Get a float from an object at runtime.
+            </summary>
+            <param name="value">The float (nested Brack statements execute).</param>
+            <returns>The string name.</returns>
+        </member>
+        <member name="M:Brack.Data.RAM.GetValue(System.Object)">
+            <summary>
+            Get a value form an object at runtime.
+            </summary>
+            <param name="value">The value (nested Brack statements execute).</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="T:Brack.Exceptions.GlobalUndeclaredException">
+            <summary>
+            Exception for the attempted use of undelcared globalvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.GlobalUndeclaredException.#ctor(System.String)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="varName">The name of the globalvar that is undeclared.</param>
+        </member>
+        <member name="T:Brack.Exceptions.LocalUndeclaredException">
+            <summary>
+            Exception for the attempted use of undelcared localvars.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.LocalUndeclaredException.#ctor(System.String)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="varName">The name of the localvar that is undeclared.</param>
+        </member>
+        <member name="T:Brack.Exceptions.NoLocalMemoryException">
+            <summary>
+            Exception for the attempted use of undelcared LocalMemories.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.NoLocalMemoryException.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="T:Brack.Exceptions.NoScopeException">
+            <summary>
+            Exception for the attempted use of undelcared Scopes.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.NoScopeException.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="T:Brack.Exceptions.OperatorException">
+            <summary>
+            Exception for the attempted use of an undelcared BrackOperator.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.OperatorException.#ctor(System.String)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="opName">The name of the BrackOperator that is undeclared.</param>
+        </member>
+        <member name="T:Brack.Exceptions.ScriptUndeclaredException">
+            <summary>
+            Exception for the attempted use of undelcared Scripts.
+            </summary>
+        </member>
+        <member name="M:Brack.Exceptions.ScriptUndeclaredException.#ctor(System.String)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="scriptName">The name of the Script that is undeclared.</param>
+        </member>
+        <member name="T:Brack.Interpretation.BrackParser">
+            <summary>
+            A utilty class for parsing Brack from strings.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.BrackParser.ParseString(System.String)">
+            <summary>
+            Parse a raw string to Brack.
+            </summary>
+            <param name="raw">The raw string to parse.</param>
+            <returns>The resulting Brack.</returns>
+        </member>
+        <member name="F:Brack.Interpretation.BrackParser.NullIndex">
+            <summary>
+            The representation for an invalid index.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.BrackParser.Raw">
+            <summary>
+            The raw string.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.BrackParser.Index">
+            <summary>
+            The current index.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.BrackParser.LastIndex">
+            <summary>
+            The index of the last Brack statement.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.BrackParser.HasNext">
+            <summary>
+            Is there another Brack statement?
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.BrackParser.IsEmpty">
+            <summary>
+            Is the raw string devoid of Brack?
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.BrackParser.#ctor(System.String)">
+            <summary>
+            Default Constructor.
+            </summary>
+            <param name="raw">The raw string.</param>
+        </member>
+        <member name="M:Brack.Interpretation.BrackParser.Next">
+            <summary>
+            Get the next Brack statement.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Interpretation.BrackParser.All">
+            <summary>
+            Get all brack from the raw string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Brack.Interpretation.BrackParser.Reset">
+            <summary>
+            Reset the index.
+            </summary>
+        </member>
+        <member name="T:Brack.Interpretation.BrackSerializer">
+            <summary>
+            A utility class for serializing and deserializing raw Brack.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.BrackSerializer.SerializeBrack(System.Object[][])">
+            <summary>
+            Serialize the given raw Brack to a byte[].
+            </summary>
+            <param name="raw">The given raw Brack.</param>
+            <returns>The serialized byte[].</returns>
+        </member>
+        <member name="M:Brack.Interpretation.BrackSerializer.DeserializeBrack(System.Byte[])">
+            <summary>
+            Deserialize the given byte[] to raw Brack.
+            </summary>
+            <param name="param">The given byte[].</param>
+            <returns>The deserialized Brack.</returns>
+        </member>
+        <member name="T:Brack.Interpretation.ObjectArrayArrayExtension">
+            <summary>
+            Extensions for object[][] (Brack).
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.ToBrackString(System.Object[][])">
+            <summary>
+            Convert this brack to string format.
+            </summary>
+            <param name="raw">This raw Brack.</param>
+            <returns>This Brack in string format.</returns>
+        </member>
+        <member name="T:Brack.Interpretation.ObjectArrayExtension">
+            <summary>
+            Extensions for object[] (a single Brack statement).
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.ObjectArrayExtension.ToBrackString(System.Object[])">
+            <summary>
+            Convert this brack to string format.
+            </summary>
+            <param name="raw">This raw Brack statement.</param>
+            <returns>This Brack in string format.</returns>
+        </member>
+        <member name="T:Brack.Interpretation.BrackInterpreter">
+            <summary>
+            A class for managing a Brack runtime enviornment.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.BrackInterpreter.Execute(Brack.Data.RAM,System.Object[][])">
+            <summary>
+            Execute the given raw Brack.
+            </summary>
+            <param name="r">The current RAM.</param>
+            <param name="brack">The raw Brack.</param>
+            <returns>The returned result of this execution.</returns>
+        </member>
+        <member name="T:Brack.Interpretation.FlowControl">
+            <summary>
+            A Brack Type used for special situations.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.FlowControl.Break">
+            <summary>
+            A break statement.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.FlowControl.Continue">
+            <summary>
+            A continue statement.
+            </summary>
+        </member>
+        <member name="T:Brack.Interpretation.Return">
+            <summary>
+            The Return data of an Execute call.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Return._ReturnData">
+            <summary>
+            The data of this Return.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Return.ReturnData">
+            <summary>
+            The data of this Return.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Return.#ctor(System.Object)">
+            <summary>
+            The Constructor.
+            </summary>
+            <param name="data"></param>
+        </member>
+    </members>
+</doc>
