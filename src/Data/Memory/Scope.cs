@@ -51,7 +51,7 @@ namespace Brack.Data.Memory
         /// <returns>If a localvars exists with the given name.</returns>
         public bool HasLocal(RAM r, object varName)
         {
-            return HasLocal(r.GetName(varName));
+            return HasLocal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Set the localvar with the given name to have the given value, and declare a localvar with the given name if none exist already.
@@ -71,7 +71,7 @@ namespace Brack.Data.Memory
         /// <returns>If a localvar exists with the given name.</returns>
         public void SetLocal(RAM r, object varName, object value)
         {
-            SetLocal(r.GetName(varName), value);
+            SetLocal(r.GetValue(varName).ToString(), value);
         }
         /// <summary>
         /// Get the value of the localvar with the given name.
@@ -99,7 +99,7 @@ namespace Brack.Data.Memory
         /// <returns>The value found in the localvar with the given name.</returns>
         public object GetLocal(RAM r, object varName)
         {
-            return GetLocal(r.GetName(varName));
+            return GetLocal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Delete the localvar with the given name from memory (with garbage collection).
@@ -125,7 +125,7 @@ namespace Brack.Data.Memory
         /// <param name="varName">The name of the localvar to delete (nested brack operations execute).</param>
         public void DeleteLocal(RAM r, object varName)
         {
-            DeleteLocal(r.GetName(varName));
+            DeleteLocal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Instantiate a new localvar Dictionary.

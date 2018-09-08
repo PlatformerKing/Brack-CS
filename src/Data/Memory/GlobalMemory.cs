@@ -58,7 +58,7 @@ namespace Brack.Data.Memory
         /// <returns>If a globalvar exists with the given name.</returns>
         public bool HasGlobal(RAM r, object varName)
         {
-            return HasGlobal(r.GetName(varName));
+            return HasGlobal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Set the globalvar with the given name to have the given value, and declare a globalvar with the given name if none exist already.
@@ -78,7 +78,7 @@ namespace Brack.Data.Memory
         /// <returns>If a globalvar exists with the given name.</returns>
         public void SetGlobal(RAM r, object varName, object value)
         {
-            SetGlobal(r.GetName(varName), value);
+            SetGlobal(r.GetValue(varName).ToString(), value);
         }
         /// <summary>
         /// Get the value of the globalvar with the given name.
@@ -106,7 +106,7 @@ namespace Brack.Data.Memory
         /// <returns>The value found in the globalvar with the given name.</returns>
         public object GetGlobal(RAM r, object varName)
         {
-            return GetGlobal(r.GetName(varName));
+            return GetGlobal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Delete the globalvar with the given name from memory (with garbage collection).
@@ -132,7 +132,7 @@ namespace Brack.Data.Memory
         /// <param name="varName">The name of the globavar to delete (nested brack operations execute).</param>
         public void DeleteGlobal(RAM r, object varName)
         {
-            DeleteGlobal(r.GetName(varName));
+            DeleteGlobal(r.GetValue(varName).ToString());
         }
         /// <summary>
         /// Instantiate a new globalvar dictionary.
@@ -194,7 +194,7 @@ namespace Brack.Data.Memory
         /// <returns>If a Script exists with the given name.</returns>
         public bool HasScript(RAM r, object scriptName)
         {
-            return HasScript(r.GetName(scriptName));
+            return HasScript(r.GetValue(scriptName).ToString());
         }
         /// <summary>
         /// Set the Script with the given name to have the given value, and declare a Script with the given name if none exist already.
@@ -214,7 +214,7 @@ namespace Brack.Data.Memory
         /// <returns>If a Script exists with the given name.</returns>
         public void SetScript(RAM r, object scriptName, Script script)
         {
-            SetScript(r.GetName(scriptName), script);
+            SetScript(r.GetValue(scriptName).ToString(), script);
         }
         /// <summary>
         /// Get the Script with the given name.
@@ -242,7 +242,7 @@ namespace Brack.Data.Memory
         /// <returns>The Script found with the given name.</returns>
         public Script GetScript(RAM r, object scriptName)
         {
-            return GetScript(r.GetName(scriptName));
+            return GetScript(r.GetValue(scriptName).ToString());
         }
         /// <summary>
         /// Delete the Script with the given name from memory (with garbage collection).
@@ -268,7 +268,7 @@ namespace Brack.Data.Memory
         /// <param name="scriptName">The name of the Script to delete (nested brack operations execute).</param>
         public void DeleteScript(RAM r, object scriptName)
         {
-            DeleteScript(r.GetName(scriptName));
+            DeleteScript(r.GetValue(scriptName).ToString());
         }
         /// <summary>
         /// Instantiate a new Script Dictionary.
@@ -318,7 +318,7 @@ namespace Brack.Data.Memory
         /// <returns>The argument names</returns>
         public string[] GetScriptArguments(RAM r, object scriptName)
         {
-            return GetScriptArguments(r.GetName(scriptName));
+            return GetScriptArguments(r.GetValue(scriptName).ToString());
         }
         /// <summary>
         /// Execute a Script.
@@ -349,7 +349,7 @@ namespace Brack.Data.Memory
         /// <returns>The resulting return.</returns>
         public object ExecuteScript(RAM r, object scriptName, object[] args)
         {
-            return ExecuteScript(r, r.GetName(scriptName), args);
+            return ExecuteScript(r, r.GetValue(scriptName), args);
         }
         #endregion
     }

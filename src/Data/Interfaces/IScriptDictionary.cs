@@ -92,6 +92,7 @@ namespace Brack.Data.Interfaces
         /// </summary>
         /// <param name="r">The RAM used for this execution.</param>
         /// <param name="scriptName">The name of the Script  (nested brack operations execute).</param>
+        /// <param name="args">The arguments.</param>
         /// <returns>The argument names.</returns>
         object ExecuteScript(RAM r, object scriptName, object[] args);
     }

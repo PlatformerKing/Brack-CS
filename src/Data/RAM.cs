@@ -570,43 +570,13 @@ namespace Brack.Data
         #endregion
         #region Public Utility Methods
         /// <summary>
-        /// Get the name of an operator from an object at runtime.
-        /// </summary>
-        /// <param name="name">The object name (nested Brack statements execute).</param>
-        /// <returns>The string name.</returns>
-        public string GetName(object name)
-        {
-            return (name is object[]) ? ExecuteOperator(this, GetName(((object[])name)[0]), ((object[])name).Skip(1).ToArray()).ToString() : name.ToString();
-        }
-        /// <summary>
-        /// Get a float from an object at runtime.
-        /// </summary>
-        /// <param name="value">The float (nested Brack statements execute).</param>
-        /// <returns>The string name.</returns>
-        public float GetFloat(object value)
-        {
-            if (value is object[])
-            {
-                value = ExecuteOperator(this, ((object[])value)[0].ToString(), (object[])((object[])value).Skip(1)).ToString();
-            }
-            if (float.TryParse(value.ToString(), out float ret))
-            {
-                return ret;
-            }
-            throw new ArgumentException();
-        }
-        /// <summary>
         /// Get a value form an object at runtime.
         /// </summary>
         /// <param name="value">The value (nested Brack statements execute).</param>
         /// <returns>The object value.</returns>
         public object GetValue(object value)
         {
-            if (value is object[])
-            {
-                return ExecuteOperator(this, GetName(((object[])value)[0]), ((object[])value).Skip(1).ToArray());
-            }
-            return value;
+            return (value is object[][])? value: (value is object[]) ? ExecuteOperator(this, (((((object[])value)[0]) is object[])? GetValue((object[])(((object[])value)[0])): (((object[])value)[0]).ToString()), ((object[])value).Skip(1).ToArray()) : value;
         }
         #endregion
     }

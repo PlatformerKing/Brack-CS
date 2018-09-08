@@ -226,7 +226,7 @@
     /// <typeparam name="T9">The generic type of the ninth argument.</typeparam>
     /// <typeparam name="T10">The generic type of the tenth argument.</typeparam>
     /// <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-    /// <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+    /// <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
     /// <param name="r">The current memory.</param>
     /// <param name="Arg1">The first argument.</param>
     /// <param name="Arg2">The second argument.</param>
@@ -239,7 +239,7 @@
     /// <param name="Arg9">The ninth argument.</param>
     /// <param name="Arg10">The tenth argument.</param>
     /// <param name="Arg11">The eleventh argument.</param>
-    /// <param name="Arg12">The twelveth argument.</param>
+    /// <param name="Arg12">The twelfth argument.</param>
     /// <returns>The delegate return.</returns>
     public delegate object BrackDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(RAM r, T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10, T11 Arg11, T12 Arg12);
     /// <summary>
@@ -256,7 +256,7 @@
     /// <typeparam name="T9">The generic type of the ninth argument.</typeparam>
     /// <typeparam name="T10">The generic type of the tenth argument.</typeparam>
     /// <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-    /// <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+    /// <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
     /// <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
     /// <param name="r">The current memory.</param>
     /// <param name="Arg1">The first argument.</param>
@@ -270,7 +270,7 @@
     /// <param name="Arg9">The ninth argument.</param>
     /// <param name="Arg10">The tenth argument.</param>
     /// <param name="Arg11">The eleventh argument.</param>
-    /// <param name="Arg12">The twelveth argument.</param>
+    /// <param name="Arg12">The twelfth argument.</param>
     /// <param name="Arg13">The thirteenth argument.</param>
     /// <returns>The delegate return.</returns>
     public delegate object BrackDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(RAM r, T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10, T11 Arg11, T12 Arg12, T13 Arg13);
@@ -288,7 +288,7 @@
     /// <typeparam name="T9">The generic type of the ninth argument.</typeparam>
     /// <typeparam name="T10">The generic type of the tenth argument.</typeparam>
     /// <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-    /// <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+    /// <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
     /// <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
     /// <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
     /// <param name="r">The current memory.</param>
@@ -303,7 +303,7 @@
     /// <param name="Arg9">The ninth argument.</param>
     /// <param name="Arg10">The tenth argument.</param>
     /// <param name="Arg11">The eleventh argument.</param>
-    /// <param name="Arg12">The twelveth argument.</param>
+    /// <param name="Arg12">The twelfth argument.</param>
     /// <param name="Arg13">The thirteenth argument.</param>
     /// <param name="Arg14">The fourteenth argument.</param>
     /// <returns>The delegate return.</returns>
@@ -322,7 +322,7 @@
     /// <typeparam name="T9">The generic type of the ninth argument.</typeparam>
     /// <typeparam name="T10">The generic type of the tenth argument.</typeparam>
     /// <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-    /// <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+    /// <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
     /// <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
     /// <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
     /// <typeparam name="T15">The generic type of the fifteenth argument.</typeparam>
@@ -338,8 +338,9 @@
     /// <param name="Arg9">The ninth argument.</param>
     /// <param name="Arg10">The tenth argument.</param>
     /// <param name="Arg11">The eleventh argument.</param>
-    /// <param name="Arg12">The twelveth argument.</param>
+    /// <param name="Arg12">The twelfth argument.</param>
     /// <param name="Arg13">The thirteenth argument.</param>
+    /// <param name="Arg14">The fourteenth argument.</param>
     /// <param name="Arg15">The fifteenth argument.</param>
     /// <returns>The delegate return.</returns>
     public delegate object BrackDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(RAM r, T1 Arg1, T2 Arg2, T3 Arg3, T4 Arg4, T5 Arg5, T6 Arg6, T7 Arg7, T8 Arg8, T9 Arg9, T10 Arg10, T11 Arg11, T12 Arg12, T13 Arg13, T14 Arg14, T15 Arg15);

@@ -32,7 +32,7 @@ namespace Brack.Data.Memory
             int i = 0;
             foreach(var a in argNames)
             {
-                _ArgNames[i++] = r.GetName(a);
+                _ArgNames[i++] = r.GetValue(a).ToString();
             }
         }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Brack.Data.Memory
         {
             try
             {
-                return GetArgName(Convert.ToInt32(r.GetFloat(index)));
+                return GetArgName(Convert.ToInt32(r.GetValue(index)));
             }
 #pragma warning disable CS0168 // Variable is declared but never used
             catch (Exception e)
@@ -130,8 +130,8 @@ namespace Brack.Data.Memory
             var i = 0;
             foreach(var a in args)
             {
-                var farg = r.GetName(a);
-                if (float.TryParse(farg, out float f))
+                var farg = r.GetValue(a);
+                if (float.TryParse(farg.ToString(), out float f))
                 {
                     r.SetLocal(_ArgNames[i++], f);
                 }

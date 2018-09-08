@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Brack-0.3.0</name>
+        <name>Brack-0.4.0</name>
     </assembly>
     <members>
         <member name="T:Brack.Data.Interfaces.IGlobalVariableDictionary">
@@ -371,6 +371,7 @@
             </summary>
             <param name="r">The RAM used for this execution.</param>
             <param name="scriptName">The name of the Script  (nested brack operations execute).</param>
+            <param name="args">The arguments.</param>
             <returns>The argument names.</returns>
         </member>
         <member name="T:Brack.Data.Memory.GlobalMemory">
@@ -1081,7 +1082,7 @@
             <typeparam name="T9">The generic type of the ninth argument.</typeparam>
             <typeparam name="T10">The generic type of the tenth argument.</typeparam>
             <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
             <param name="r">The current memory.</param>
             <param name="Arg1">The first argument.</param>
             <param name="Arg2">The second argument.</param>
@@ -1094,7 +1095,7 @@
             <param name="Arg9">The ninth argument.</param>
             <param name="Arg10">The tenth argument.</param>
             <param name="Arg11">The eleventh argument.</param>
-            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg12">The twelfth argument.</param>
             <returns>The delegate return.</returns>
         </member>
         <member name="T:Brack.Data.Operations.BrackDelegate`13">
@@ -1112,7 +1113,7 @@
             <typeparam name="T9">The generic type of the ninth argument.</typeparam>
             <typeparam name="T10">The generic type of the tenth argument.</typeparam>
             <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
             <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
             <param name="r">The current memory.</param>
             <param name="Arg1">The first argument.</param>
@@ -1126,7 +1127,7 @@
             <param name="Arg9">The ninth argument.</param>
             <param name="Arg10">The tenth argument.</param>
             <param name="Arg11">The eleventh argument.</param>
-            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg12">The twelfth argument.</param>
             <param name="Arg13">The thirteenth argument.</param>
             <returns>The delegate return.</returns>
         </member>
@@ -1145,7 +1146,7 @@
             <typeparam name="T9">The generic type of the ninth argument.</typeparam>
             <typeparam name="T10">The generic type of the tenth argument.</typeparam>
             <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
             <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
             <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
             <param name="r">The current memory.</param>
@@ -1160,7 +1161,7 @@
             <param name="Arg9">The ninth argument.</param>
             <param name="Arg10">The tenth argument.</param>
             <param name="Arg11">The eleventh argument.</param>
-            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg12">The twelfth argument.</param>
             <param name="Arg13">The thirteenth argument.</param>
             <param name="Arg14">The fourteenth argument.</param>
             <returns>The delegate return.</returns>
@@ -1180,7 +1181,7 @@
             <typeparam name="T9">The generic type of the ninth argument.</typeparam>
             <typeparam name="T10">The generic type of the tenth argument.</typeparam>
             <typeparam name="T11">The generic type of the eleventh argument.</typeparam>
-            <typeparam name="T12">The generic type of the twelvth argument.</typeparam>
+            <typeparam name="T12">The generic type of the twelfth argument.</typeparam>
             <typeparam name="T13">The generic type of the thirteenth argument.</typeparam>
             <typeparam name="T14">The generic type of the fourteenth argument.</typeparam>
             <typeparam name="T15">The generic type of the fifteenth argument.</typeparam>
@@ -1196,8 +1197,9 @@
             <param name="Arg9">The ninth argument.</param>
             <param name="Arg10">The tenth argument.</param>
             <param name="Arg11">The eleventh argument.</param>
-            <param name="Arg12">The twelveth argument.</param>
+            <param name="Arg12">The twelfth argument.</param>
             <param name="Arg13">The thirteenth argument.</param>
+            <param name="Arg14">The fourteenth argument.</param>
             <param name="Arg15">The fifteenth argument.</param>
             <returns>The delegate return.</returns>
         </member>
@@ -2164,20 +2166,6 @@
             <summary>
             Reset the LocalMemory List.
             </summary>
-        </member>
-        <member name="M:Brack.Data.RAM.GetName(System.Object)">
-            <summary>
-            Get the name of an operator from an object at runtime.
-            </summary>
-            <param name="name">The object name (nested Brack statements execute).</param>
-            <returns>The string name.</returns>
-        </member>
-        <member name="M:Brack.Data.RAM.GetFloat(System.Object)">
-            <summary>
-            Get a float from an object at runtime.
-            </summary>
-            <param name="value">The float (nested Brack statements execute).</param>
-            <returns>The string name.</returns>
         </member>
         <member name="M:Brack.Data.RAM.GetValue(System.Object)">
             <summary>

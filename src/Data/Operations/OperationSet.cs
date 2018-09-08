@@ -80,7 +80,7 @@ namespace Brack.Data.Operations
         /// <returns></returns>
         public bool HasOpName(RAM r, object opName)
         {
-            return HasOpName(r.GetName(opName));
+            return HasOpName(r.GetValue(opName).ToString());
         }
         /// <summary>
         /// Execute an Operator with the given name and arguments.
@@ -93,13 +93,13 @@ namespace Brack.Data.Operations
         {
             try
             {
-                return _Operators[opName].Execute(r, args);
+                return _Operators[opName.ToLower()].Execute(r, args);
             }
 #pragma warning disable CS0168 // Variable is declared but never used
             catch (KeyNotFoundException e)
 #pragma warning restore CS0168 // Variable is declared but never used
             {
-                throw new OperatorException(opName);
+                throw new OperatorException(opName.ToLower());
             }
         }
         /// <summary>
@@ -111,7 +111,7 @@ namespace Brack.Data.Operations
         /// <returns>The resulting return of the Operator execution.</returns>
         public object ExecuteOperator(RAM r, object opName, object[] args)
         {
-            return ExecuteOperator(r, r.GetName(opName), args);
+            return ExecuteOperator(r, r.GetValue(opName).ToString().ToLower(), args);
         }
         #endregion
     }

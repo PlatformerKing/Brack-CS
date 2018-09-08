@@ -60,7 +60,7 @@ namespace Brack.Data.Operations
         public BrackOperatorBase(string name, Delegate imp)
         {
             _BrackDelegate = imp;
-            Name = name;
+            Name = name.ToLower();
         }
         #endregion
         #region Public Methods
@@ -94,9 +94,9 @@ namespace Brack.Data.Operations
                 var i = 0;
                 foreach (var a in args)
                 {
-                    if (a is object[])
+                    if (a is object[] && !(((object[])_Types)[i] is object[][]))
                     {
-                        ret[i++] = r.GetName(a);
+                        ret[i++] = r.GetValue(a);
                     }
                     else
                     {
@@ -104,7 +104,7 @@ namespace Brack.Data.Operations
                     }
                 }
                 return ret;
-            }
+        }
 #pragma warning disable CS0168 // Variable is declared but never used
             catch (InvalidCastException e)
 #pragma warning restore CS0168 // Variable is declared but never used

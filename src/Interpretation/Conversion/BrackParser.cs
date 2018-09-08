@@ -92,13 +92,35 @@ namespace Brack.Interpretation
                         if (cur == '[' && bef != '\\')
                         {
                             level++;
+
                         }
                         else if (cur == ']' && bef != '\\')
                         {
                             level--;
                             if (level == 1)
                             {
-                                curStatement.Add(ParseString(tok)[0]);
+                                var it = ParseString(tok)[0];
+                                if (it is object[])
+                                {
+                                    bool isAA = true;
+                                    var final = new List<object[]>();
+                                    foreach (var o in it)
+                                    {
+                                        if (!(o is object[]))
+                                        {
+                                            isAA = false;
+                                        }
+                                        else
+                                        {
+                                            final.Add((object[])o);
+                                        }
+                                    }
+                                    if (isAA)
+                                    {
+                                        it = final.ToArray();
+                                    }
+                                }
+                                curStatement.Add(it);
                                 tok = "";
                             }
                         }

@@ -21,7 +21,7 @@ namespace Brack.Interpretation
         public static object Execute(RAM r, object[] brack)
         {
             var obj = r.GetValue(brack);
-            if (obj is Return || obj is FlowControl)
+            if (obj is Return || obj is bool || obj is FlowControl)
             {
                 return obj;
             }
@@ -39,7 +39,7 @@ namespace Brack.Interpretation
             foreach (var s in brack)
             {
                 object v = Execute(r, s);
-                if (v != null)
+                if (v is Return || v is bool || v is FlowControl)
                 {
                     return v;
                 }
@@ -75,6 +75,7 @@ namespace Brack.Interpretation
                 });
                 Thread executeThread = new Thread(() =>
                 {
+                    r.PushNewLocalMemory();
                     bool cont = true;
                     while (cont)
                     {
@@ -93,12 +94,13 @@ namespace Brack.Interpretation
                         if (cur != null)
                         {
                             ret = Execute(r, cur);
-                            if (ret != null)
+                            if (ret is Return || ret is bool || ret is FlowControl)
                             {
                                 cont = false;
                             }
                         }
                     }
+                    r.RemoveLastLocalMemory();
                 });
                 readThread.Start();
                 executeThread.Start();
@@ -122,6 +124,7 @@ namespace Brack.Interpretation
         {
             if (threaded)
             {
+                r.PushNewLocalMemory();
                 var doneReading = false;
                 object ret = null;
                 var input = new Queue<object[]>();
@@ -157,12 +160,13 @@ namespace Brack.Interpretation
                         if (cur != null)
                         {
                             ret = Execute(r, cur);
-                            if (ret != null)
+                            if (ret is Return || ret is bool || ret is FlowControl)
                             {
                                 cont = false;
                             }
                         }
                     }
+                    r.RemoveLastLocalMemory();
                 });
                 readThread.Start();
                 executeThread.Start();
