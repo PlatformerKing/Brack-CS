@@ -1,1 +1,11 @@
-[print [add 1 1]]
+﻿[set a 12]
+[set a [+ [get a] 10]]
+[print [get a]]
+
+[? [[false]] 
+[
+	[print its_true]
+]
+[
+	[print its_false]
+]]
