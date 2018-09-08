@@ -1,12 +1,67 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace Brack.Interpretation
 {
+
     /// <summary>
     /// Extensions for object[][] (Brack).
     /// </summary>
     public static class ObjectArrayArrayExtension
     {
+        /// <summary>
+        /// Serialize the given raw Brack to a byte[].
+        /// </summary>
+        /// <param name="raw">The given raw Brack.</param>
+        /// <returns>The serialized byte[].</returns>
+        public static byte[] SerializeBrack(this object[][] raw)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                new BinaryFormatter().Serialize(stream, raw);
+                return stream.ToArray();
+            }
+        }
+        /// <summary>
+        /// Serialize the given raw Brack to a byte[].
+        /// </summary>
+        /// <param name="raw">The given raw Brack.</param>
+        /// <returns>The serialized byte[].</returns>
+        public static byte[] SerializeBrack(this object[] raw)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                new BinaryFormatter().Serialize(stream, raw);
+                return stream.ToArray();
+            }
+        }
+        /// <summary>
+        /// Deserialize the given byte[] to raw Brack.
+        /// </summary>
+        /// <param name="raw">The given byte[].</param>
+        /// <returns>The deserialized Brack.</returns>
+        public static object[][] DeserializeBrack(this byte[] raw)
+        {
+            using (MemoryStream ms = new MemoryStream(raw))
+            {
+                IFormatter br = new BinaryFormatter();
+                return (object[][])br.Deserialize(ms);
+            }
+        }
+        /// <summary>
+        /// Deserialize the given byte[] to raw Brack.
+        /// </summary>
+        /// <param name="raw">The given byte[].</param>
+        /// <returns>The deserialized Brack.</returns>
+        public static object[] DeserializeBrackSingle(this byte[] raw)
+        {
+            using (MemoryStream ms = new MemoryStream(raw))
+            {
+                return (object[])(new BinaryFormatter()).Deserialize(ms);
+            }
+        }
         /// <summary>
         /// Convert this brack to string format.
         /// </summary>
@@ -34,6 +89,7 @@ namespace Brack.Interpretation
                         {
                             curstr = "\"" + curstr + "\"";
                         }
+                        ret.Append(curstr);
                     }
 
                     if (i2 < b.Length - 1)
@@ -41,6 +97,7 @@ namespace Brack.Interpretation
                         ret.Append(" ");
                     }
                 }
+                ret.Append("]");
             }
             return ret.ToString();
         }

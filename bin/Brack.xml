@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Brack-0.2.0</name>
+        <name>Brack-0.3.0</name>
     </assembly>
     <members>
         <member name="T:Brack.Data.Interfaces.IGlobalVariableDictionary">
@@ -2250,6 +2250,146 @@
             </summary>
             <param name="scriptName">The name of the Script that is undeclared.</param>
         </member>
+        <member name="T:Brack.Interpretation.Conversion.BrackByteFileStream">
+            <summary>
+            A stream for reading files of serialized Brack.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackByteFileStream._FileStream">
+            <summary>
+            The FileStream.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackByteFileStream._Index">
+            <summary>
+            The current index of reading.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackByteFileStream._Next">
+            <summary>
+            The next Brack statement.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackByteFileStream.HasNext">
+            <summary>
+            Is there another Brack statement?
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackByteFileStream.#ctor(System.String,System.IO.FileMode)">
+            <summary>
+            The default constructor.
+            </summary>
+            <param name="path">The file path.</param>
+            <param name="mode">The file mode.</param>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackByteFileStream.CanRead">
+            <summary>
+            Can you read another Brack statement from this stream?
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackByteFileStream.CanWrite">
+            <summary>
+            Can you write another Brack statement to this stream?
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackByteFileStream.Position">
+            <summary>
+            The current position being read from this stream.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackByteFileStream.Flush">
+            <summary>
+            Flush the stream to the file.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackByteFileStream.Next">
+            <summary>
+            Read the next Brack statement.
+            </summary>
+            <returns>The next Brack statement.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackByteFileStream.GetNext">
+            <summary>
+            Internally read the next Brack statement.
+            </summary>
+            <returns>The internal Brack.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackByteFileStream.Write(System.Object[])">
+            <summary>
+            Write the next Brack statement.
+            </summary>
+            <param name="raw">The Brack statement to write.</param>
+        </member>
+        <member name="T:Brack.Interpretation.Conversion.BrackFileStream">
+            <summary>
+            A stream for reading files of Brack.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackFileStream._FileStream">
+            <summary>
+            The FileStream.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackFileStream._Index">
+            <summary>
+            The current index of reading.
+            </summary>
+        </member>
+        <member name="F:Brack.Interpretation.Conversion.BrackFileStream._Next">
+            <summary>
+            The next Brack statement.
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackFileStream.HasNext">
+            <summary>
+            Is there another Brack statement?
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackFileStream.#ctor(System.String,System.IO.FileMode)">
+            <summary>
+            The default constructor.
+            </summary>
+            <param name="path">The file path.</param>
+            <param name="mode">The file mode.</param>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackFileStream.CanRead">
+            <summary>
+            Can you read another Brack statement from this stream?
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackFileStream.CanWrite">
+            <summary>
+            Can you write another Brack statement to this stream?
+            </summary>
+        </member>
+        <member name="P:Brack.Interpretation.Conversion.BrackFileStream.Position">
+            <summary>
+            The current position being read from this stream.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackFileStream.Flush">
+            <summary>
+            Flush the stream to the file.
+            </summary>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackFileStream.Next">
+            <summary>
+            Read the next Brack statement.
+            </summary>
+            <returns>The next Brack statement.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackFileStream.GetNext">
+            <summary>
+            Internally read the next Brack statement.
+            </summary>
+            <returns>The internal Brack.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.Conversion.BrackFileStream.Write(System.Object[])">
+            <summary>
+            Write the next Brack statement.
+            </summary>
+            <param name="raw">The Brack statement to write.</param>
+        </member>
         <member name="T:Brack.Interpretation.BrackParser">
             <summary>
             A utilty class for parsing Brack from strings.
@@ -2315,29 +2455,38 @@
             Reset the index.
             </summary>
         </member>
-        <member name="T:Brack.Interpretation.BrackSerializer">
+        <member name="T:Brack.Interpretation.ObjectArrayArrayExtension">
             <summary>
-            A utility class for serializing and deserializing raw Brack.
+            Extensions for object[][] (Brack).
             </summary>
         </member>
-        <member name="M:Brack.Interpretation.BrackSerializer.SerializeBrack(System.Object[][])">
+        <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.SerializeBrack(System.Object[][])">
             <summary>
             Serialize the given raw Brack to a byte[].
             </summary>
             <param name="raw">The given raw Brack.</param>
             <returns>The serialized byte[].</returns>
         </member>
-        <member name="M:Brack.Interpretation.BrackSerializer.DeserializeBrack(System.Byte[])">
+        <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.SerializeBrack(System.Object[])">
+            <summary>
+            Serialize the given raw Brack to a byte[].
+            </summary>
+            <param name="raw">The given raw Brack.</param>
+            <returns>The serialized byte[].</returns>
+        </member>
+        <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.DeserializeBrack(System.Byte[])">
             <summary>
             Deserialize the given byte[] to raw Brack.
             </summary>
-            <param name="param">The given byte[].</param>
+            <param name="raw">The given byte[].</param>
             <returns>The deserialized Brack.</returns>
         </member>
-        <member name="T:Brack.Interpretation.ObjectArrayArrayExtension">
+        <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.DeserializeBrackSingle(System.Byte[])">
             <summary>
-            Extensions for object[][] (Brack).
+            Deserialize the given byte[] to raw Brack.
             </summary>
+            <param name="raw">The given byte[].</param>
+            <returns>The deserialized Brack.</returns>
         </member>
         <member name="M:Brack.Interpretation.ObjectArrayArrayExtension.ToBrackString(System.Object[][])">
             <summary>
@@ -2360,8 +2509,16 @@
         </member>
         <member name="T:Brack.Interpretation.BrackInterpreter">
             <summary>
-            A class for managing a Brack runtime enviornment.
+            A utility class for managing a Brack runtime.
             </summary>
+        </member>
+        <member name="M:Brack.Interpretation.BrackInterpreter.Execute(Brack.Data.RAM,System.Object[])">
+            <summary>
+            Execute the given raw Brack statement.
+            </summary>
+            <param name="r">The current RAM.</param>
+            <param name="brack">The raw Brack statement.</param>
+            <returns>The returned result of this execution.</returns>
         </member>
         <member name="M:Brack.Interpretation.BrackInterpreter.Execute(Brack.Data.RAM,System.Object[][])">
             <summary>
@@ -2369,6 +2526,24 @@
             </summary>
             <param name="r">The current RAM.</param>
             <param name="brack">The raw Brack.</param>
+            <returns>The returned result of this execution.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.BrackInterpreter.ExecuteBytes(Brack.Data.RAM,System.String,System.Boolean)">
+            <summary>
+            Read the serialized Brack file at the given path.
+            </summary>
+            <param name="r">The current RAM.</param>
+            <param name="path">The path to the file.</param>
+            <param name="threaded">Should this execution be threaded?</param>
+            <returns>The returned result of this execution.</returns>
+        </member>
+        <member name="M:Brack.Interpretation.BrackInterpreter.ExecuteRaw(Brack.Data.RAM,System.String,System.Boolean)">
+            <summary>
+            Read the string Brack file at the given path.
+            </summary>
+            <param name="r">The current RAM.</param>
+            <param name="path">The path to the file.</param>
+            <param name="threaded">Should this execution be threaded?</param>
             <returns>The returned result of this execution.</returns>
         </member>
         <member name="T:Brack.Interpretation.FlowControl">

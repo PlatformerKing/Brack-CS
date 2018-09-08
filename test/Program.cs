@@ -27,9 +27,7 @@ namespace Brack_CS_Test
                     }),
                 }));
 
-            object[][] brack = BrackParser.ParseString(File.ReadAllText("TestScript.brak"));
-
-            BrackInterpreter.Execute(curRam, brack);
+            BrackInterpreter.ExecuteRaw(curRam, "TestScript.brak", true);
 
             Console.ReadKey();
         }

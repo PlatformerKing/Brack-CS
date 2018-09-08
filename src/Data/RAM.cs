@@ -576,7 +576,7 @@ namespace Brack.Data
         /// <returns>The string name.</returns>
         public string GetName(object name)
         {
-            return (name is object[]) ? ExecuteOperator(this, ((object[])name)[0].ToString(), (object[])((object[])name).Skip(1)).ToString() : name.ToString();
+            return (name is object[]) ? ExecuteOperator(this, GetName(((object[])name)[0]), ((object[])name).Skip(1).ToArray()).ToString() : name.ToString();
         }
         /// <summary>
         /// Get a float from an object at runtime.
@@ -604,7 +604,7 @@ namespace Brack.Data
         {
             if (value is object[])
             {
-                return ExecuteOperator(this, ((object[])value)[0].ToString(), (object[])((object[])value).Skip(1));
+                return ExecuteOperator(this, GetName(((object[])value)[0]), ((object[])value).Skip(1).ToArray());
             }
             return value;
         }

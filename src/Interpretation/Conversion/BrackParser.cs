@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Brack.Interpretation
@@ -14,9 +15,10 @@ namespace Brack.Interpretation
         /// </summary>
         /// <param name="raw">The raw string to parse.</param>
         /// <returns>The resulting Brack.</returns>
-        public static object[] ParseString(string raw)
+        public static object[][] ParseString(string raw)
         {
-            List<object> ret = new List<object>(), curStatement = null;
+            List<object[]> ret = new List<object[]>();
+            List<object> curStatement = null;
             int level = 0;
             bool inComment = false, inString = false;
             string tok = "";
@@ -71,6 +73,18 @@ namespace Brack.Interpretation
                             }
                             tok = cur.ToString();
                         }
+                        else if (string.IsNullOrWhiteSpace(cur.ToString()))
+                        {
+                            if (tok != "")
+                            {
+                                curStatement.Add(ParseObj(tok));
+                            }
+                            tok = "";
+                        }
+                        else
+                        {
+                            tok += cur;
+                        }
                     }
                     else if (level > 1)
                     {
@@ -84,7 +98,7 @@ namespace Brack.Interpretation
                             level--;
                             if (level == 1)
                             {
-                                curStatement.Add(ParseString(tok));
+                                curStatement.Add(ParseString(tok)[0]);
                                 tok = "";
                             }
                         }
